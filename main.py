@@ -13,7 +13,7 @@ app.geometry("400x600")  # 设置窗口大小 宽400，高500
 welcome_label = ctk.CTkLabel(app, text="Welcome！", font=("Arial", 20))
 welcome_label.pack(pady=20)  # pady=20 是上下留白，让它别贴边
 
-# 5. 顶部标签
+# 5. 顶部标 签
 title_label = ctk.CTkLabel(app, text="MY TO-DO LIST",
                            font=("Arial", 20, "bold"),
                            text_color="#2C3E50")
