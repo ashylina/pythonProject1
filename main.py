@@ -11,7 +11,7 @@ app.geometry("400x600")  # 设置窗口大小 宽400，高500
 
 # 3. 添加一个简单的欢迎标签（Label）
 welcome_label = ctk.CTkLabel(app, text="Welcome！", font=("Arial", 20))
-welcome_label.pack(pady=20)  # pady=20 是上下留白，让它别贴边
+welcome_label.pack(pady=20)  # pady上下留白
 
 # 5. 顶部标 签
 title_label = ctk.CTkLabel(app, text="MY TO-DO LIST",
@@ -24,15 +24,27 @@ task_entry = ctk.CTkEntry(app, width=300, height=40,
                           placeholder_text="Enter a Task",
                           corner_radius=40, )
 task_entry.pack(pady=20)
+# 创建栏目
+task_list_frame = ctk.CTkScrollableFrame(app, width=10, height=10, fg_color="#FFFFFF", corner_radius=15)
+task_list_frame.pack(pady=10, fill="both", expand=True)
 
 
 # 定义按钮后的执行函数
+task_labels = []
+
+
 def add_task():
     task_text = task_entry.get()  # 输入内容后
     # 若不为空
     if task_text != "":
         print("ok", task_text)
+        # 标签显示
+    new_label = ctk.CTkLabel(task_list_frame, text="*" + task_text, )
+    new_label.pack(anchor="w", padx=5, pady=5)
+    task_labels.append(new_label)
     task_entry.delete(0, "end")
+
+# 设置任务标签
 
 
 # 按钮设置
